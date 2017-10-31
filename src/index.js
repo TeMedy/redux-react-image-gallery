@@ -18,7 +18,7 @@ const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-  <Gallery />
+    <Gallery />
   </Provider>,
   document.getElementById('root')
 );
