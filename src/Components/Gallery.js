@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as GalleryActions from '../actions'
 
 export class Gallery extends Component {
 
-  constructor (props){
-    super(props)
+  componentDidMount(){
+    this.props.loadImages();
   }
 
   render() {
@@ -15,13 +15,13 @@ export class Gallery extends Component {
       <div className="image-gallery">
         <div className="gallery-image">
           <div>
-            <img src={selectedImage} />
+            <img src={selectedImage} alt=''/>
           </div>
         </div>
         <div className="image-scroller">
           {images.map((image, index) => (
             <div key={index} onClick={() => selectImage(image)}>
-              <img src={image}/>
+              <img src={image} alt='' />
             </div>
           ))}
         </div>

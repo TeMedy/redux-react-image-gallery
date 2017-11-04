@@ -6,3 +6,19 @@ export const selectImage = (image) => {
     image
   }
 }
+
+export const LOAD_IMAGES = 'LOAD_IMAGES'
+
+export const loadImages = () => {
+  return {
+    type: LOAD_IMAGES
+  }
+}
+
+export const TEST = 'TEST'
+
+export const test = () => {
+  return {
+    type: TEST
+  }
+}

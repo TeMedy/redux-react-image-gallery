@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './styles.css'
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import reducer from './reducer.js'
 import { Provider } from 'react-redux'
 
@@ -11,10 +12,13 @@ import { Provider } from 'react-redux'
 //import 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 //import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
 
-
 import Gallery from './Components/Gallery'
+import { whatchForLoadImages } from './sagas.js';
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  applyMiddleware(createSagaMiddleware(whatchForLoadImages))
+);
 
 ReactDOM.render(
   <Provider store={store}>
